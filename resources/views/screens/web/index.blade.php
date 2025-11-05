@@ -1,5 +1,13 @@
 @extends('layouts.web.app')
 
+@push('styles')
+    <style>
+        label.error {
+            color: #dc3545 !important;
+        }
+    </style>
+@endpush
+
 @php
     $page = 'special-page';
 @endphp
@@ -15,7 +23,8 @@
         </div>
         <div class="video-area position-relative">
             <div>
-                <video src="{{ asset('assets/web/images/banner-video.mp4') }}" autoplay="true" muted="true" loop="true" class="video1">
+                <video src="{{ asset('assets/web/images/banner-video.mp4') }}" autoplay="true" muted="true" loop="true"
+                    class="video1">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -99,7 +108,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -111,9 +121,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -129,7 +141,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -141,9 +154,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -159,7 +174,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -173,7 +189,8 @@
                                                 <span>|</span>
                                                 <p><img src="{{ asset('assets/web/images/Vector2.png')}}" alt=""> Bath 2</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png')}}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png')}}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -189,7 +206,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -201,9 +219,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -219,7 +239,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -231,9 +252,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -260,7 +283,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -272,9 +296,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -290,7 +316,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -302,9 +329,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -320,7 +349,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -332,9 +362,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -350,7 +382,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -362,9 +395,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -380,7 +415,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -392,9 +428,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -421,7 +459,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -433,9 +472,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -451,7 +492,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -463,9 +505,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -481,7 +525,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -493,9 +538,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -511,7 +558,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -523,9 +571,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -541,7 +591,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -553,9 +604,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -582,7 +635,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -594,9 +648,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -612,7 +668,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -624,9 +681,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -642,7 +701,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -654,9 +714,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -672,7 +734,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -684,9 +747,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -702,7 +767,8 @@
                                         <button class="btn heart-save-btn p-0">
                                             <i class="fa-regular fa-heart"></i>
                                         </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt="" class="advertisment-badge">
+                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                            class="advertisment-badge">
                                     </div>
                                     <div class="property-card-body">
                                         <div class="property-name position-relative">
@@ -714,9 +780,11 @@
                                             <div class="d-flex justify-content-between">
                                                 <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
+                                                </p>
                                                 <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft</p>
+                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="property-name d-flex justify-content-between align-items-center">
@@ -799,7 +867,7 @@
             </div>
         </div>
     </section>
-    <x-loop-slider-section/>
+    <x-loop-slider-section />
     <section class="advertise-sec position-relative">
         <div class="container">
             <div class="col-lg-12">
@@ -842,7 +910,8 @@
     <section class="discover-sec">
         <div class="video-area2">
             <div>
-                <video src="{{ asset('assets/web/images/sec-video.mp4') }}" autoplay="true" muted="true" loop="true" class="video2">
+                <video src="{{ asset('assets/web/images/sec-video.mp4') }}" autoplay="true" muted="true" loop="true"
+                    class="video2">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -872,7 +941,7 @@
             </div>
         </div>
     </section>
-    <x-partner-section/>
+    <x-partner-section />
     <section class="testimonial-sec">
         <div class="container">
             <h6 class="sec-hd-mini text-center">Reviews</h6>
@@ -1078,3 +1147,185 @@
     </section>
 @endsection
 
+@push('scripts')
+    {{-- User Regiser Form Validation --}}
+    <script>
+        $("#register-form").validate({
+            rules: {
+
+                email: {
+                    required: true,
+                    email: true
+                },
+
+                password: {
+                    required: true,
+                    minlength: 8
+                },
+
+                password_confirmation: {
+                    required: true,
+                    equalTo: "#user-password"
+                }
+            },
+
+            messages: {
+
+                email: {
+                    required: "Please Enter Your Email!",
+                    email: "Please Enter A Valid Email!"
+                },
+
+                password: {
+                    required: "Please Enter Your Password!",
+                    minlength: "Password Should Be Atleast 8 Characters Long!"
+                },
+
+                password_confirmation: {
+                    required: "Please Enter Confirm Password!",
+                    equalTo: "Passwords Do Not Match!"
+                }
+            },
+
+            errorPlacement : function(error, element)
+            {
+                error.insertAfter($(element).closest('.input-wrapper'));
+            }
+        });
+    </script>
+    {{-- User Regiser Form Validation --}}
+
+    {{-- User Regiser Form Submittion --}}
+    <script>
+        $(document).ready(function () {
+            $('#register-form').on('submit', function (e) {
+                if (!$(this).valid()) {
+                    return false;
+                }
+                e.preventDefault();
+                let formData = new FormData(this);
+                $.ajax({
+                    url: "{{ route('user.register') }}",
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () {
+                        $.LoadingOverlay('show');
+                    },
+                    success: function (response) {
+                        $.LoadingOverlay('hide');
+                        if(response.status)
+                        {
+                            Swal.fire({
+                                title: "There's Information For You!",
+                                text: response.message,
+                                icon: 'info',
+                                confirmButtonColor: '#295568',
+                                confirmButtonText: 'OK'
+                            }).then(()=>{
+                                window.location.reload();
+                            })
+                        }
+                    },
+                    error: function (error) {
+                        $.LoadingOverlay('hide');
+                        Swal.fire({
+                            title: 'Something Went Wrong!',
+                            text: error.statusText,
+                            icon: 'error',
+                            confirmButtonColor: '#295568',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                })
+            });
+        });
+    </script>
+    {{-- User Regiser Form Submittion  --}}
+
+    {{-- Login Form Validation --}}
+    <script>
+        $("#login-form").validate({
+            rules: {
+
+                email: {
+                    required: true,
+                    email: true
+                },
+
+                password: {
+                    required: true,
+                },
+            },
+
+            messages: {
+
+                email: {
+                    required: "Please Enter Your Email!",
+                    email: "Please Enter A Valid Email!"
+                },
+
+                password: {
+                    required: "Please Enter Your Password!",
+                },
+            },
+
+            errorPlacement : function(error, element)
+            {
+                error.insertAfter($(element).closest('.input-wrapper'));
+            }
+        });
+    </script>
+    {{-- Login Form Validation --}}
+
+    {{-- Login Form Submittion --}}
+    <script>
+        $(document).ready(function () {
+            $('#login-form').on('submit', function (e) {
+                if (!$(this).valid()) {
+                    return false;
+                }
+                e.preventDefault();
+                let formData = new FormData(this);
+                $.ajax({
+                    url: "{{ route('user.login') }}",
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () {
+                        $.LoadingOverlay('show');
+                    },
+                    success: function (response) {
+                        $.LoadingOverlay('hide');
+                        if(response.message)
+                        {
+                            Swal.fire({
+                                title: "Error!",
+                                text: response.message,
+                                icon: 'error',
+                                confirmButtonColor: '#295568',
+                                confirmButtonText: 'OK'
+                            })
+                        }
+                        else{
+                            window.location.href = response.url;
+                        }
+                    },
+                    error: function (error) {
+                        $.LoadingOverlay('hide');
+                        Swal.fire({
+                            title: 'Something Went Wrong!',
+                            text: error.statusText,
+                            icon: 'error',
+                            confirmButtonColor: '#295568',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                })
+            });
+        });
+    </script>
+    {{-- Login Form Submittion  --}}
+@endpush

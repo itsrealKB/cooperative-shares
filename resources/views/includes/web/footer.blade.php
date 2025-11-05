@@ -1,7 +1,8 @@
+{{-- Login Form --}}
 <div class="modal fade" id="modalOverlayLogin" tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content p-0 border-0">
-            <div class="modal-bg" style="background-image: url('{{ asset('assets/web/images/login.png') }};)">
+            <div class="modal-bg" style="background-image: url('{{ asset('assets/web/images/login.png') }}');">
                 <div class="modal-overlay">
 
                     <button type="button" class="close-modal" data-bs-dismiss="modal" aria-label="Close">
@@ -23,19 +24,22 @@
                                     </div>
                                 </div>
                                 <p class="account-para text-center">or use your account</p>
-                                <div class="input-wrapper">
-                                    <input type="email" placeholder="Email">
-                                    <i class="fa-solid fa-user"></i>
-                                </div>
-                                <div class="input-wrapper">
-                                    <input type="email" placeholder="Password">
-                                    <i class="fa-solid fa-eye"></i>
-                                </div>
-                                <div class="forgot-password">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalOverlay"
-                                        class="forgot-password-link">forgot-password</a>
-                                </div>
-                                <button class="submit-btn custumar-btn">Login</button>
+                                <form id="login-form">
+                                    @csrf
+                                    <div class="input-wrapper">
+                                        <input type="email" name="email" placeholder="Email">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div class="input-wrapper">
+                                        <input type="password" name="password" id="login-password" placeholder="Password">
+                                        <i class="fa-solid fa-eye" id="login-password-toggle"></i>
+                                    </div>
+                                    <div class="forgot-password">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalOverlay"
+                                            class="forgot-password-link">forgot-password</a>
+                                    </div>
+                                    <button class="submit-btn custumar-btn">Login</button>
+                                </form>
                             </div>
                             <div class="left">
                                 <h2 class="welcome-hd friend-hd">Hello, Friend!</h2>
@@ -57,7 +61,7 @@
 <div class="modal fade" id="modalOverlay" tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content p-0 border-0">
-            <div class="modal-bg" style="background-image: url('{{asset('assets/web/images/login.png')}};)">
+            <div class="modal-bg" style="background-image: url('{{ asset('assets/web/images/login.png') }}');">
                 <div class="modal-overlay">
 
                     <button type="button" class="close-modal" data-bs-dismiss="modal" aria-label="Close">
@@ -261,6 +265,25 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <script>
+    function togglePasswordIcon($password, $icon){
+        const password = document.getElementById($password);
+        const toggleIcon = document.getElementById($icon);
+
+        toggleIcon.addEventListener("click", () => {
+            const isPassword = password.type === "password";
+            password.type = isPassword ? "text" : "password";
+            toggleIcon.classList.toggle("fa-eye");
+            toggleIcon.classList.toggle("fa-eye-slash");
+        });
+    }
+
+    togglePasswordIcon('vendor-password', 'vendorTogglePassword');
+    togglePasswordIcon('user-password', 'userTogglePassword');
+    togglePasswordIcon('login-password', 'login-password-toggle');
+
+</script>
+
+<script>
     const passwordInput2 = document.getElementById("confirmPasswordInput2");
     const toggleIcon2 = document.getElementById("togglePassword2");
 
@@ -314,6 +337,17 @@
         toggleIcon3.classList.toggle("fa-eye-slash");
     });
 </script>
+
+{{-- Sweet Alert & Loader --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+
+{{-- Validation Scripts Start --}}
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+{{-- Validation Scripts End --}}
 
 @stack('scripts')
 </body>

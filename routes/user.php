@@ -1,15 +1,17 @@
 <?php
 
+use App\Http\Controllers\Auth\UserAuthController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/dashboard', function (){
    return view('screens.user.index');
 })->name('dashboard');
 
-Route::get('/profile', function (){
-   return view('screens.user.profile');
-})->name('profile');
-
+Route::controller(UserAuthController::class)->group(function(){
+    Route::get('/profile', 'profileView')->name('profile');
+    Route::post('/profile', 'profileStore')->name('profile.store');
+});
 
 Route::get('/save-listing', function (){
    return view('screens.user.save-listing');

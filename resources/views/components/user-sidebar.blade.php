@@ -48,7 +48,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('user.logout') }}">
                 <img src="{{ asset('assets/user/images/side-bar-img6.png') }}" alt="">
                 <span>Logout</span>
             </a>

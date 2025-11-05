@@ -12,19 +12,22 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
         then: function () {
-            Route::middleware(['web'])
+            Route::middleware(['web','auth.redirect'])
                 ->prefix('user')
                 ->name('user.')
                 ->group(base_path('routes/user.php'));
 
-            Route::middleware(['web'])
+            Route::middleware(['web','auth.redirect'])
                 ->prefix('vendor')
                 ->name('vendor.')
                 ->group(base_path('routes/vendor.php'));
         }
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+
+        $middleware->alias([
+            'auth.redirect' => \App\Http\Middleware\RedirectIfNotAuthenticated::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

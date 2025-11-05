@@ -71,16 +71,16 @@
                     aria-expanded="false">
                     <img src="{{ asset('assets/user/images/person-img.png') }}" alt="">
                     <div>
-                        <h5>Alexis Anderson</h5>
-                        <h6>User Profile</h6>
+                        <h5>{{ Auth::user()->getfullName() ?? 'No Name' }}</h5>
+                        <h6>{{ Auth::user()->email }}</h6>
                     </div>
                 </button>
                 <ul class="dropdown-menu profile-menu">
                     <li class="prof-li">
-                        <a class="" href="#"><i class="fa-solid fa-circle-user"></i> Profile</a>
+                        <a href="{{ route('user.profile') }}"><i class="fa-solid fa-circle-user"></i> Profile</a>
                     </li>
                     <li class="prof-li">
-                        <a class="" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
+                        <a href="{{ route('user.logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
                     </li>
                 </ul>
             </div>

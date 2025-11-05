@@ -1,4 +1,5 @@
 @include('includes.vendor.head')
-@include('includes.vendor.header')
 <x-vendor-sidebar/>
+@include('includes.vendor.header')
+@yield('section')
 @include('includes.vendor.footer')

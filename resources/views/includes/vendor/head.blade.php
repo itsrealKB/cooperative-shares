@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/images/footer-logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/vendor/images/logo.png') }}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,10 +19,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/style/slick.css">
-    <link rel="stylesheet" href="./assets/style/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/style/style.css">
-    <link rel="stylesheet" href="./assets/style/responsive.css">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/style/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/style/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/style/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/style/responsive.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -30,3 +30,4 @@
     @stack('styles')
 </head>
 <body>
+    <main class="main-layout-wrapper">

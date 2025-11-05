@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/user/style/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/style/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/style/responsive.css') }}">
-    <title>Cooperative Shares Admin</title>
+    <title>Cooperative Shares</title>
     @stack('styles')
 </head>
 <body>

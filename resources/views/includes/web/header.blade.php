@@ -40,8 +40,7 @@
                 </ul>
                 <div class="listing-area">
                     <div class="search-box">
-                        <a data-bs-toggle="modal" data-bs-target="#exampleModal3"><i
-                                class="fa-solid fa-magnifying-glass"></i></a>
+                        <a data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </div>
 
                     <div class="login-box">
@@ -58,6 +57,7 @@
                     </div>
                 </div>
 
+                {{-- Sign Up Modal --}}
                 <div class="modal fade" id="exampleModal" tabindex="-1">
                     <div class="modal-dialog modal-fullscreen">
                         <div class="modal-content p-0 border-0">
@@ -77,6 +77,7 @@
                                                 Vendor</button>
                                         </div>
 
+                                        {{-- User Modal --}}
                                         <div class="tab-content" id="customer">
                                             <div class="left">
                                                 <h2 class="welcome-hd">Welcome!</h2>
@@ -94,23 +95,27 @@
                                                     </div>
                                                 </div>
                                                 <p class="account-para text-center">or use your account</p>
-                                                <div class="input-wrapper">
-                                                    <input type="email" placeholder="Email">
-                                                    <i class="fa-solid fa-user"></i>
-                                                </div>
-                                                <div class="input-wrapper">
-                                                    <input type="email" placeholder="Password">
-                                                   <i class="fa-solid fa-eye"></i>
-                                                </div>
-                                                <div class="input-wrapper">
-                                                    <input type="password" placeholder="Confirm Password"
-                                                        id="confirmPasswordInput">
-                                                    <i class="fa-solid fa-eye" id="togglePassword"></i>
-                                                </div>
-                                                <button class="submit-btn custumar-btn">Sign Up</button>
+                                                <form id="register-form">
+                                                    @csrf
+                                                    <div class="input-wrapper">
+                                                        <input type="email" name="email" placeholder="Email" />
+                                                        <i class="fa-solid fa-user"></i>
+                                                    </div>
+                                                    <div class="input-wrapper">
+                                                        <input type="password" name="password" id="user-password"  placeholder="Password" />
+                                                        <i class="fa-solid fa-eye" id="userTogglePassword"></i>
+                                                    </div>
+                                                    <div class="input-wrapper">
+                                                        <input type="password" name="password_confirmation" placeholder="Confirm Password"
+                                                            id="confirmPasswordInput" />
+                                                        <i class="fa-solid fa-eye" id="togglePassword"></i>
+                                                    </div>
+                                                    <button class="submit-btn custumar-btn">Sign Up</button>
+                                                </form>
                                             </div>
                                         </div>
 
+                                        {{-- Vendor Modal --}}
                                         <div class="tab-content tab-content-22 d-none" id="vendor">
                                             <div class="right">
                                                 <h2 class="sing-up-hd-md text-center">Sign Up</h2>
@@ -128,8 +133,8 @@
                                                     <i class="fa-solid fa-user"></i>
                                                 </div>
                                                 <div class="input-wrapper">
-                                                    <input type="email" placeholder="Password">
-                                                    <i class="fa-solid fa-eye"></i>
+                                                    <input type="password" id="vendor-password" placeholder="Password">
+                                                    <i class="fa-solid fa-eye" id="vendorTogglePassword"></i>
                                                 </div>
                                                 <div class="input-wrapper">
                                                     <input type="password" placeholder="Confirm Password"
