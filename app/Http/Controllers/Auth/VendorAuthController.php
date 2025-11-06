@@ -7,14 +7,14 @@ use App\Http\Requests\ProfileFormRequest;
 use App\Repositories\Interfaces\AuthRepositoryInterface;
 use Illuminate\Http\Request;
 
-class UserAuthController extends Controller
+class VendorAuthController extends Controller
 {
     public function __construct(private AuthRepositoryInterface $authRepo){}
 
     public function register(Request $request)
     {
         try{
-            $this->authRepo->register($request, 'user');
+            $this->authRepo->register($request, 'vendor');
 
             return response()->json([
                 'status' => true,
@@ -61,7 +61,7 @@ class UserAuthController extends Controller
     public function profileView()
     {
         $user = $this->authRepo->viewProfile();
-        return view('screens.user.profile', compact('user'));
+        return view('screens.vendor.profile', compact('user'));
     }
 
     public function profileStore(ProfileFormRequest $request)

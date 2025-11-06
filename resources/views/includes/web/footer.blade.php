@@ -31,7 +31,8 @@
                                         <i class="fa-solid fa-user"></i>
                                     </div>
                                     <div class="input-wrapper">
-                                        <input type="password" name="password" id="login-password" placeholder="Password">
+                                        <input type="password" name="password" id="login-password"
+                                            placeholder="Password">
                                         <i class="fa-solid fa-eye" id="login-password-toggle"></i>
                                     </div>
                                     <div class="forgot-password">
@@ -212,12 +213,17 @@
                 <div class="f-ul-wrapper text-start">
                     <h4 class="footer-hd">Quick Links</h4>
                     <ul>
-                        <li><a href="{{ route('index') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a></li>
-                        <li><a href="{{ route('about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About Us</a></li>
-                        <li><a href="{{ route('listings') }}" class="{{ request()->is('listings') ? 'active' : '' }}">Listings</a></li>
+                        <li><a href="{{ route('index') }}" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
+                        </li>
+                        <li><a href="{{ route('about') }}" class="{{ request()->is('about') ? 'active' : '' }}">About
+                                Us</a></li>
+                        <li><a href="{{ route('listings') }}"
+                                class="{{ request()->is('listings') ? 'active' : '' }}">Listings</a></li>
                         <li><a href="{{ route('services') }}">Services</a></li>
-                        <li><a href="{{ route('reviews') }}" class="{{ request()->is('reviews') ? 'active' : '' }}">Reviews</a></li>
-                        <li><a href="{{ route('blogs') }}" class="{{ request()->is('blogs') ? 'active' : '' }}">Blogs</a></li>
+                        <li><a href="{{ route('reviews') }}"
+                                class="{{ request()->is('reviews') ? 'active' : '' }}">Reviews</a></li>
+                        <li><a href="{{ route('blogs') }}"
+                                class="{{ request()->is('blogs') ? 'active' : '' }}">Blogs</a></li>
                     </ul>
                 </div>
             </div>
@@ -225,11 +231,17 @@
                 <div class="f-ul-wrapper text-start">
                     <h4 class="footer-hd">Helpful links</h4>
                     <ul>
-                        <li><a href="{{ route('cooperrative.differences') }}" class="{{ request()->is('cooperrative-differences') ? 'active' : '' }}">Cooperative Differences</a></li>
-                        <li><a href="{{ route('contact') }}" class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
-                        <li><a href="{{ route('privacy.policy') }}" class="{{ request()->is('privacy-policy') ? 'active' : '' }}">Privacy Policy</a></li>
-                        <li><a href="{{ route('faq') }}" class="{{ request()->is('faq') ? 'active' : '' }}">FAQs</a></li>
-                        <li><a href="{{ route('terms') }}" class="{{ request()->is('terms') ? 'active' : '' }}">Terms & Conditions</a></li>
+                        <li><a href="{{ route('cooperrative.differences') }}"
+                                class="{{ request()->is('cooperrative-differences') ? 'active' : '' }}">Cooperative
+                                Differences</a></li>
+                        <li><a href="{{ route('contact') }}"
+                                class="{{ request()->is('contact') ? 'active' : '' }}">Contact Us</a></li>
+                        <li><a href="{{ route('privacy.policy') }}"
+                                class="{{ request()->is('privacy-policy') ? 'active' : '' }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('faq') }}" class="{{ request()->is('faq') ? 'active' : '' }}">FAQs</a>
+                        </li>
+                        <li><a href="{{ route('terms') }}" class="{{ request()->is('terms') ? 'active' : '' }}">Terms &
+                                Conditions</a></li>
                     </ul>
                 </div>
             </div>
@@ -265,7 +277,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <script>
-    function togglePasswordIcon($password, $icon){
+    function togglePasswordIcon($password, $icon) {
         const password = document.getElementById($password);
         const toggleIcon = document.getElementById($icon);
 
@@ -340,7 +352,8 @@
 
 {{-- Sweet Alert & Loader --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 
 {{-- Validation Scripts Start --}}
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
@@ -349,6 +362,279 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
 {{-- Validation Scripts End --}}
 
+{{-- User Register Form Validation --}}
+<script>
+    $("#register-form").validate({
+        rules: {
+
+            email: {
+                required: true,
+                email: true
+            },
+
+            password: {
+                required: true,
+                minlength: 8
+            },
+
+            password_confirmation: {
+                required: true,
+                equalTo: "#user-password"
+            }
+        },
+
+        messages: {
+
+            email: {
+                required: "Please Enter Your Email!",
+                email: "Please Enter A Valid Email!"
+            },
+
+            password: {
+                required: "Please Enter Your Password!",
+                minlength: "Password Should Be Atleast 8 Characters Long!"
+            },
+
+            password_confirmation: {
+                required: "Please Enter Confirm Password!",
+                equalTo: "Passwords Do Not Match!"
+            }
+        },
+
+        errorPlacement: function (error, element) {
+            error.insertAfter($(element).closest('.input-wrapper'));
+        }
+    });
+</script>
+{{-- User Register Form Validation --}}
+
+{{-- User Register Form Submittion --}}
+<script>
+    $(document).ready(function () {
+        $('#register-form').on('submit', function (e) {
+            if (!$(this).valid()) {
+                return false;
+            }
+            e.preventDefault();
+            let formData = new FormData(this);
+            $.ajax({
+                url: "{{ route('user.register') }}",
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $.LoadingOverlay('show');
+                },
+                success: function (response) {
+                    $.LoadingOverlay('hide');
+                    if (response.status) {
+                        Swal.fire({
+                            title: "There's Information For You!",
+                            text: response.message,
+                            icon: 'info',
+                            confirmButtonColor: '#295568',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            window.location.reload();
+                        })
+                    }
+                },
+                error: function (error) {
+                    $.LoadingOverlay('hide');
+                    let message = (error.responseJSON?.message) ? error.responseJSON?.message : error.statusText;
+                    Swal.fire({
+                        title: 'Something Went Wrong!',
+                        text: message,
+                        icon: 'error',
+                        confirmButtonColor: '#295568',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            })
+        });
+    });
+</script>
+{{-- User Register Form Submittion --}}
+
+{{-- Vendor Register Form Validation --}}
+<script>
+    $("#vendor-register-form").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+
+            password: {
+                required: true,
+                minlength: 8
+            },
+
+            password_confirmation: {
+                required: true,
+                equalTo: "#vendor-password"
+            }
+        },
+
+        messages: {
+
+            email: {
+                required: "Please Enter Your Email!",
+                email: "Please Enter A Valid Email!"
+            },
+
+            password: {
+                required: "Please Enter Your Password!",
+                minlength: "Password Should Be Atleast 8 Characters Long!"
+            },
+
+            password_confirmation: {
+                required: "Please Enter Confirm Password!",
+                equalTo: "Passwords Do Not Match!"
+            }
+        },
+
+        errorPlacement: function (error, element) {
+            error.insertAfter($(element).closest('.input-wrapper'));
+        }
+    });
+</script>
+{{-- Vendor Register Form Validation --}}
+
+{{-- Vendor Register Form Submittion --}}
+<script>
+    $(document).ready(function () {
+        $('#vendor-register-form').on('submit', function (e) {
+            if (!$(this).valid()) {
+                return false;
+            }
+            e.preventDefault();
+            let formData = new FormData(this);
+            $.ajax({
+                url: "{{ route('vendor.register') }}",
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $.LoadingOverlay('show');
+                },
+                success: function (response) {
+                    $.LoadingOverlay('hide');
+                    if (response.status) {
+                        Swal.fire({
+                            title: "There's Information For You!",
+                            text: response.message,
+                            icon: 'info',
+                            confirmButtonColor: '#295568',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            window.location.reload();
+                        })
+                    }
+                },
+                error: function (error) {
+                    $.LoadingOverlay('hide');
+                    let message = (error.responseJSON?.message) ? error.responseJSON?.message : error.statusText;
+                    Swal.fire({
+                        title: 'Something Went Wrong!',
+                        text: message,
+                        icon: 'error',
+                        confirmButtonColor: '#295568',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            })
+        });
+    });
+</script>
+{{-- Vendor Register Form Submittion --}}
+
+{{-- Login Form Validation --}}
+<script>
+    $("#login-form").validate({
+        rules: {
+
+            email: {
+                required: true,
+                email: true
+            },
+
+            password: {
+                required: true,
+            },
+        },
+
+        messages: {
+
+            email: {
+                required: "Please Enter Your Email!",
+                email: "Please Enter A Valid Email!"
+            },
+
+            password: {
+                required: "Please Enter Your Password!",
+            },
+        },
+
+        errorPlacement: function (error, element) {
+            error.insertAfter($(element).closest('.input-wrapper'));
+        }
+    });
+</script>
+{{-- Login Form Validation --}}
+
+{{-- Login Form Submittion --}}
+<script>
+    $(document).ready(function () {
+        $('#login-form').on('submit', function (e) {
+            if (!$(this).valid()) {
+                return false;
+            }
+            e.preventDefault();
+            let formData = new FormData(this);
+            $.ajax({
+                url: "{{ route('user.login') }}",
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    $.LoadingOverlay('show');
+                },
+                success: function (response) {
+                    $.LoadingOverlay('hide');
+                    if (response.message) {
+                        Swal.fire({
+                            title: "Error!",
+                            text: response.message,
+                            icon: 'error',
+                            confirmButtonColor: '#295568',
+                            confirmButtonText: 'OK'
+                        })
+                    }
+                    else {
+                        window.location.href = response.url;
+                    }
+                },
+                error: function (error) {
+                    $.LoadingOverlay('hide');
+                    Swal.fire({
+                        title: 'Something Went Wrong!',
+                        text: error.statusText,
+                        icon: 'error',
+                        confirmButtonColor: '#295568',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            })
+        });
+    });
+</script>
+{{-- Login Form Submittion --}}
+
 @stack('scripts')
 </body>
+
 </html>

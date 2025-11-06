@@ -69,18 +69,18 @@
             <div class="dropdown">
                 <button class="btn dropdown-toggle position-relative profile-btn" type="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{{ asset('assets/vendor/images/person-img.png') }}" alt="">
+                    <img src="{{ (Auth::user()->profile_image)? asset('storage/'.Auth::user()->profile_image) : asset('assets/dummy_avatar/avatar.jpg') }}" alt="">
                     <div>
-                        <h5>Alexis Anderson</h5>
-                        <h6>Vendor Profile</h6>
+                        <h5>{{ (Auth::user()->getfullName() != ' ') ? Auth::user()->getfullName() : 'No Name' }}</h5>
+                        <h6>{{ Auth::user()->email }}</h6>
                     </div>
                 </button>
                 <ul class="dropdown-menu profile-menu">
                     <li class="prof-li">
-                        <a class="" href="#"><i class="fa-solid fa-circle-user"></i> Profile</a>
+                        <a class="" href="{{ route('vendor.profile') }}"><i class="fa-solid fa-circle-user"></i> Profile</a>
                     </li>
                     <li class="prof-li">
-                        <a class="" href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
+                        <a class="" href="{{ route('vendor.logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
                     </li>
                 </ul>
             </div>

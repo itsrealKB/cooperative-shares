@@ -1,13 +1,21 @@
 <?php
 
 use App\Http\Controllers\Auth\UserAuthController;
+use App\Http\Controllers\Auth\VendorAuthController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::controller(UserAuthController::class)->middleware('web')->group(function(){
     Route::post('/register', 'register')->name('user.register');
     Route::post('/login', 'login')->name('user.login');
     Route::get('/logout','destroy')->name('user.logout');
+});
+
+Route::controller(VendorAuthController::class)->middleware('web')->group(function(){
+    Route::post('/vendor-register', 'register')->name('vendor.register');
+    Route::post('/vendor-login', 'login')->name('vendor.login');
+    Route::get('/vendor-logout','destroy')->name('vendor.logout');
 });
 
 Route::get('/', function () {

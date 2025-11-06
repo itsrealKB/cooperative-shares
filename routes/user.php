@@ -11,6 +11,9 @@ Route::get('/dashboard', function (){
 Route::controller(UserAuthController::class)->group(function(){
     Route::get('/profile', 'profileView')->name('profile');
     Route::post('/profile', 'profileStore')->name('profile.store');
+    Route::post('/profile-image', 'profileImageStore')->name('profileImage.store');
+    Route::delete('/profile-image', 'profileImageDestory')->name('profileImage.destory');
+    Route::post('/password-update', 'passwordUpdate')->name('password.update');
 });
 
 Route::get('/save-listing', function (){

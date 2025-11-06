@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\VendorAuthController;
+use App\Http\Controllers\Vendor\ListingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/dashboard', function (){
@@ -10,18 +12,28 @@ Route::get('/payment-methods', function (){
    return view('screens.vendor.payment-methods');
 })->name('payment.methods');
 
-Route::get('/profile', function (){
-   return view('screens.vendor.profile');
-})->name('profile');
 
+Route::controller(VendorAuthController::class)->group(function(){
+    Route::get('/profile', 'profileView')->name('profile');
+    Route::post('/profile', 'profileStore')->name('profile.store');
+    Route::post('/profile-image', 'profileImageStore')->name('profileImage.store');
+    Route::delete('/profile-image', 'profileImageDestory')->name('profileImage.destory');
+    Route::post('/password-update', 'passwordUpdate')->name('password.update');
+});
 
-Route::get('/listing', function (){
-   return view('screens.vendor.listing');
-})->name('listing');
+// Route::get('/listing', function (){
+//    return view('screens.vendor.listing');
+// })->name('listing');
 
-Route::get('/add-listing', function (){
-   return view('screens.vendor.add-listing');
-})->name('add.listing');
+// Route::get('/add-listing', function (){
+//    return view('screens.vendor.add-listing');
+// })->name('add.listing');
+
+Route::controller(ListingController::class)->group(function(){
+    Route::get('/listing', 'index')->name('listing');
+    Route::get('/add-listing', 'addLisitingView')->name('add.listing');
+    Route::post('/add-listing', 'addListing')->name('listing.store');
+});
 
 Route::get('/leads', function (){
    return view('screens.vendor.leads');

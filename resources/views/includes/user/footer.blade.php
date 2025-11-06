@@ -3,6 +3,7 @@
 <script src="{{ asset('assets/user/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('assets/user/js/slick.min.js') }}"></script>
 <script src="{{ asset('assets/user/js/main.js') }}"></script>
+
 {{-- Sweet Alert & Loader --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>

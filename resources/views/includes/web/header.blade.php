@@ -128,20 +128,23 @@
                                                     </div>
                                                 </div>
                                                 <p class="account-para text-center">or use your account</p>
-                                                <div class="input-wrapper">
-                                                    <input type="email" placeholder="Email">
-                                                    <i class="fa-solid fa-user"></i>
-                                                </div>
-                                                <div class="input-wrapper">
-                                                    <input type="password" id="vendor-password" placeholder="Password">
-                                                    <i class="fa-solid fa-eye" id="vendorTogglePassword"></i>
-                                                </div>
-                                                <div class="input-wrapper">
-                                                    <input type="password" placeholder="Confirm Password"
-                                                        id="confirmPasswordInput3">
-                                                    <i class="fa-solid fa-eye" id="togglePassword3"></i>
-                                                </div>
-                                                <button class="submit-btn custumar-btn">Sign Up</button>
+                                                <form id="vendor-register-form">
+                                                    @csrf
+                                                    <div class="input-wrapper">
+                                                        <input type="email" name="email" placeholder="Email"/>
+                                                        <i class="fa-solid fa-user"></i>
+                                                    </div>
+                                                    <div class="input-wrapper">
+                                                        <input type="password" name="password" id="vendor-password" placeholder="Password"/>
+                                                        <i class="fa-solid fa-eye" id="vendorTogglePassword"></i>
+                                                    </div>
+                                                    <div class="input-wrapper">
+                                                        <input type="password" name="password_confirmation" placeholder="Confirm Password"
+                                                            id="confirmPasswordInput3">
+                                                        <i class="fa-solid fa-eye" id="togglePassword3"></i>
+                                                    </div>
+                                                    <button class="submit-btn custumar-btn">Sign Up</button>
+                                                </form>
                                             </div>
                                             <div class="left">
                                                 <h2 class="welcome-hd">Welcome!</h2>

@@ -69,9 +69,9 @@
             <div class="dropdown">
                 <button class="btn dropdown-toggle position-relative profile-btn" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="{{ asset('assets/user/images/person-img.png') }}" alt="">
+                    <img src="{{ (Auth::user()->profile_image)? asset('storage/'.Auth::user()->profile_image) : asset('assets/dummy_avatar/avatar.jpg') }}" alt="">
                     <div>
-                        <h5>{{ Auth::user()->getfullName() ?? 'No Name' }}</h5>
+                        <h5>{{ (Auth::user()->getfullName() != ' ') ? Auth::user()->getfullName() : 'No Name' }}</h5>
                         <h6>{{ Auth::user()->email }}</h6>
                     </div>
                 </button>
