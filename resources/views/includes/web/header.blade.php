@@ -43,14 +43,30 @@
                         <a data-bs-toggle="modal" data-bs-target="#exampleModal3"><i class="fa-solid fa-magnifying-glass"></i></a>
                     </div>
 
-                    <div class="login-box">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <img src="{{ asset('assets/web/images/login-img.png') }}" alt="">
-                        </a>
-                    </div>
-                    <a href="#" class="listing-btn"><img src="{{ asset('assets/web/images/btn-Vector1.png') }}" alt=""> Add Listing</a>
-                    <a href="#" class="listing-btn"><img src="{{ asset('assets/web/images/btn-Vector2.png') }}" alt=""> Become a
-                        Partner</a>
+                    @auth
+                        <div class="login-box mx-5">
+                            <a href="{{ route(Auth::user()->role.'.dashboard') }}">
+                                <img src="{{ asset('assets/web/images/dashboard-logo.png') }}" alt="Dashboard Logo" style="width:40px;" title="Dashboard"/>
+                            </a>
+                        </div>
+                    @endauth
+
+                    @guest
+                        <div class="login-box">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src="{{ asset('assets/web/images/login-img.png') }}" alt="Login Logo"/>
+                            </a>
+                        </div>
+                    @endguest
+
+                    @if(Auth::check() && Auth::user()->isVendor())
+                        <a href="{{ route('vendor.add.listing') }}" class="listing-btn"><img src="{{ asset('assets/web/images/btn-Vector1.png') }}" alt=""> Add Listing</a>
+                    @endif
+
+                    @guest
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="listing-btn"><img src="{{ asset('assets/web/images/btn-Vector2.png') }}" alt=""> Become A Partner</a>
+                    @endguest
+
                     <span class="none-line">|</span>
                     <div class="hamburger" id="menu-btn">
                         <i class="fa-solid fa-bars"></i>

@@ -2,9 +2,16 @@
 
 use App\Http\Controllers\Auth\UserAuthController;
 use App\Http\Controllers\Auth\VendorAuthController;
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\ListingController;
+use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 
 
+
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+});
 
 Route::controller(UserAuthController::class)->middleware('web')->group(function(){
     Route::post('/register', 'register')->name('user.register');
@@ -18,21 +25,14 @@ Route::controller(VendorAuthController::class)->middleware('web')->group(functio
     Route::get('/vendor-logout','destroy')->name('vendor.logout');
 });
 
-Route::get('/', function () {
-    return view('screens.web.index');
-})->name('index');
-
 Route::get('/about', function () {
     return view('screens.web.about');
 })->name('about');
 
-Route::get('/listings', function () {
-    return view('screens.web.listings');
-})->name('listings');
-
-Route::get('/listing-detail', function () {
-    return view('screens.web.listing-detail');
-})->name('listing.detail');
+Route::controller(ListingController::class)->group(function(){
+    Route::get('/listings', 'index')->name('listings');
+    Route::get('/listing-detail/{listing}','show')->name('listing.detail');
+});
 
 Route::get('/services', function () {
     return view('screens.web.services');

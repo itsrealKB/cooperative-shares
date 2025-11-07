@@ -4,7 +4,7 @@
     </button>
 
     <div class="logo-area">
-        <a href="{{ route('vendor.dashboard') }}" >
+        <a href="{{ route('index') }}" >
             <img src="{{ asset('assets/vendor/images/logo.png') }}" alt="">
         </a>
     </div>
@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('vendor.listing') }}" class="{{ request()->is('vendor/listing') ? 'active' : '' }}">
+            <a href="{{ route('vendor.listings') }}" class="{{ request()->is('vendor/listing') ? 'active' : '' }}">
                 <div class="icon-text">
                     <img src="{{ asset('assets/vendor/images/side-bar-img3.png') }}" alt="">
                     <span>Listing</span>

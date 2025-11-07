@@ -81,726 +81,211 @@
                         <div>
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                    <button class="nav-link active" id="nav-all-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-all" type="button" role="tab" aria-controls="nav-all"
                                         aria-selected="true">View All</button>
-                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                                    <button class="nav-link" id="nav-apartment-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-apartment" type="button" role="tab" aria-controls="nav-apartment"
                                         aria-selected="false">Apartment</button>
-                                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                                    <button class="nav-link" id="nav-commercial-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-commercial" type="button" role="tab" aria-controls="nav-commercial"
                                         aria-selected="false">Commercial</button>
-                                    <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-disabled" type="button" role="tab" aria-controls="nav-disabled"
+                                    <button class="nav-link" id="nav-land-or-plot-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-land-or-plot" type="button" role="tab" aria-controls="nav-land-or-plot"
                                         aria-selected="false">Land or Plot</button>
                                 </div>
                             </nav>
                         </div>
                     </div>
                     <div class="tab-content w-100" id="nav-tabContent">
-                        <div class="tab-pane fade show active w-100" id="nav-home" role="tabpanel"
-                            aria-labelledby="nav-home-tab" tabindex="0">
+
+                        <div class="tab-pane fade show active w-100" id="nav-all" role="tabpanel"
+                            aria-labelledby="nav-all-tab" tabindex="0">
                             <div class="property-slider-wrapper w-100 position-relative">
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container3.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
+                                @foreach ($allListings as $listing )
+                                    <div class="property-card">
+                                        <div class="img-area position-relative">
+                                            <img src="{{ asset('storage/'.$listing->main_image) }}" alt="" class="img-fluid">
+                                            <div class="property-card-badge3">XYZ cooperative</div>
+                                            <button class="btn heart-save-btn p-0">
+                                                <i class="fa-regular fa-heart"></i>
+                                            </button>
+                                            {{-- <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                                class="advertisment-badge"> --}}
                                         </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
+                                        <div class="property-card-body">
+                                            <div class="property-name position-relative">
+                                                <h3>{{ $listing->property_title }}</h3>
+                                                <p><i class="fa-solid fa-location-dot"></i> {{ $listing->address }}</p>
+                                                <div class="property-card-badge">{{ $listing->listed_in }}</div>
+                                            </div>
+                                            <div class="other-desc">
+                                                <div class="d-flex justify-content-between">
+                                                    <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed {{ $listing->bedrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath {{ $listing->bathrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> {{ $listing->size_in_ft }} sqft</p>
+                                                </div>
+                                            </div>
+                                            <div class="property-name d-flex justify-content-between align-items-center">
+                                                <h3 class="m-0">@moneyFormat($listing->price)</h3>
+                                                <a href="{{ route('listing.detail', $listing->id) }}">View More</a>
                                             </div>
                                         </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$179,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container2.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container4.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png')}}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png')}}" alt=""> Bath 2</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png')}}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$250,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$189,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container3.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="property-card-slider-button-wrapper position-relative">
-                                <button class="property-button-prev slider-btn"><i
-                                        class="fa-solid fa-arrow-left"></i></button>
-                                <button class="property-button-next slider-btn"><i
-                                        class="fa-solid fa-arrow-right"></i></button>
-                            </div>
+                            @if($allListings->isNotEmpty())
+                                <div class="property-card-slider-button-wrapper position-relative">
+                                    <button class="property-button-prev slider-btn"><i
+                                            class="fa-solid fa-arrow-left"></i></button>
+                                    <button class="property-button-next slider-btn"><i
+                                            class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            @endif
                         </div>
-                        <div class="tab-pane fade w-100" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
+                        <div class="tab-pane fade w-100" id="nav-apartment" role="tabpanel" aria-labelledby="nav-apartment-tab"
                             tabindex="0">
                             <div class="property-slider-wrapper w-100 position-relative">
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container3.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
+
+                                @foreach ($apartmentListings as $listing )
+                                    <div class="property-card">
+                                        <div class="img-area position-relative">
+                                            <img src="{{ asset('storage/'.$listing->main_image) }}" alt="" class="img-fluid">
+                                            <div class="property-card-badge3">XYZ cooperative</div>
+                                            <button class="btn heart-save-btn p-0">
+                                                <i class="fa-regular fa-heart"></i>
+                                            </button>
+                                            {{-- <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                                class="advertisment-badge"> --}}
                                         </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
+                                        <div class="property-card-body">
+                                            <div class="property-name position-relative">
+                                                <h3>{{ $listing->property_title }}</h3>
+                                                <p><i class="fa-solid fa-location-dot"></i> {{ $listing->address }}</p>
+                                                <div class="property-card-badge">{{ $listing->listed_in }}</div>
+                                            </div>
+                                            <div class="other-desc">
+                                                <div class="d-flex justify-content-between">
+                                                    <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed {{ $listing->bedrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath {{ $listing->bathrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> {{ $listing->size_in_ft }} sqft</p>
+                                                </div>
+                                            </div>
+                                            <div class="property-name d-flex justify-content-between align-items-center">
+                                                <h3 class="m-0">@moneyFormat($listing->price)</h3>
+                                                <a href="{{ route('listing.detail', $listing->id) }}">View More</a>
                                             </div>
                                         </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$179,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container2.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container4.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$250,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container4.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$189,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
-                            <div class="property-card-slider-button-wrapper position-relative">
-                                <button class="property-button-prev slider-btn"><i
-                                        class="fa-solid fa-arrow-left"></i></button>
-                                <button class="property-button-next slider-btn"><i
-                                        class="fa-solid fa-arrow-right"></i></button>
-                            </div>
+                            @if($apartmentListings->isNotEmpty())
+                                <div class="property-card-slider-button-wrapper position-relative">
+                                    <button class="property-button-prev slider-btn"><i
+                                            class="fa-solid fa-arrow-left"></i></button>
+                                    <button class="property-button-next slider-btn"><i
+                                            class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            @endif
                         </div>
-                        <div class="tab-pane fade w-100" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"
+                        <div class="tab-pane fade w-100" id="nav-commercial" role="tabpanel" aria-labelledby="nav-commercial-tab"
                             tabindex="0">
                             <div class="property-slider-wrapper w-100 position-relative">
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container3.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
+                                @foreach ($commercialListings as $listing )
+                                    <div class="property-card">
+                                        <div class="img-area position-relative">
+                                            <img src="{{ asset('storage/'.$listing->main_image) }}" alt="" class="img-fluid">
+                                            <div class="property-card-badge3">XYZ cooperative</div>
+                                            <button class="btn heart-save-btn p-0">
+                                                <i class="fa-regular fa-heart"></i>
+                                            </button>
+                                            {{-- <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                                class="advertisment-badge"> --}}
                                         </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
+                                        <div class="property-card-body">
+                                            <div class="property-name position-relative">
+                                                <h3>{{ $listing->property_title }}</h3>
+                                                <p><i class="fa-solid fa-location-dot"></i> {{ $listing->address }}</p>
+                                                <div class="property-card-badge">{{ $listing->listed_in }}</div>
+                                            </div>
+                                            <div class="other-desc">
+                                                <div class="d-flex justify-content-between">
+                                                    <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed {{ $listing->bedrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath {{ $listing->bathrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> {{ $listing->size_in_ft }} sqft</p>
+                                                </div>
+                                            </div>
+                                            <div class="property-name d-flex justify-content-between align-items-center">
+                                                <h3 class="m-0">@moneyFormat($listing->price)</h3>
+                                                <a href="{{ route('listing.detail', $listing->id) }}">View More</a>
                                             </div>
                                         </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$179,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container2.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container4.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$250,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$189,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container3.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="property-card-slider-button-wrapper position-relative">
-                                <button class="property-button-prev slider-btn"><i
-                                        class="fa-solid fa-arrow-left"></i></button>
-                                <button class="property-button-next slider-btn"><i
-                                        class="fa-solid fa-arrow-right"></i></button>
-                            </div>
+                            @if($commercialListings->isNotEmpty())
+                                <div class="property-card-slider-button-wrapper position-relative">
+                                    <button class="property-button-prev slider-btn"><i
+                                            class="fa-solid fa-arrow-left"></i></button>
+                                    <button class="property-button-next slider-btn"><i
+                                            class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            @endif
                         </div>
-                        <div class="tab-pane fade w-100" id="nav-disabled" role="tabpanel"
-                            aria-labelledby="nav-disabled-tab" tabindex="0">
+                        <div class="tab-pane fade w-100" id="nav-land-or-plot" role="tabpanel"
+                            aria-labelledby="nav-land-or-plot-tab" tabindex="0">
                             <div class="property-slider-wrapper w-100 position-relative">
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container2.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
+                                @foreach ($landOrPlotListings as $listing )
+                                    <div class="property-card">
+                                        <div class="img-area position-relative">
+                                            <img src="{{ asset('storage/'.$listing->main_image) }}" alt="" class="img-fluid">
+                                            <div class="property-card-badge3">XYZ cooperative</div>
+                                            <button class="btn heart-save-btn p-0">
+                                                <i class="fa-regular fa-heart"></i>
+                                            </button>
+                                            {{-- <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
+                                                class="advertisment-badge"> --}}
                                         </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
+                                        <div class="property-card-body">
+                                            <div class="property-name position-relative">
+                                                <h3>{{ $listing->property_title }}</h3>
+                                                <p><i class="fa-solid fa-location-dot"></i> {{ $listing->address }}</p>
+                                                <div class="property-card-badge">{{ $listing->listed_in }}</div>
+                                            </div>
+                                            <div class="other-desc">
+                                                <div class="d-flex justify-content-between">
+                                                    <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed {{ $listing->bedrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath {{ $listing->bathrooms }}</p>
+                                                    <span>|</span>
+                                                    <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> {{ $listing->size_in_ft }} sqft</p>
+                                                </div>
+                                            </div>
+                                            <div class="property-name d-flex justify-content-between align-items-center">
+                                                <h3 class="m-0">@moneyFormat($listing->price)</h3>
+                                                <a href="{{ route('listing.detail', $listing->id) }}">View More</a>
                                             </div>
                                         </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$179,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
                                     </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container4.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$250,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container3.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Co-Op Share</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$189,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="property-card">
-                                    <div class="img-area position-relative">
-                                        <img src="{{ asset('assets/web/images/Container2.png') }}" alt="" class="img-fluid">
-                                        <div class="property-card-badge3">XYZ cooperative</div>
-                                        <button class="btn heart-save-btn p-0">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </button>
-                                        <img src="{{ asset('assets/web/images/advertisment-badge.png') }}" alt=""
-                                            class="advertisment-badge">
-                                    </div>
-                                    <div class="property-card-body">
-                                        <div class="property-name position-relative">
-                                            <h3>Homes For Sale</h3>
-                                            <p><i class="fa-solid fa-location-dot"></i> Lorem Ipsum is simply dummy</p>
-                                            <div class="property-card-badge">Full Ownership</div>
-                                        </div>
-                                        <div class="other-desc">
-                                            <div class="d-flex justify-content-between">
-                                                <p><img src="{{ asset('assets/web/images/Vector1.png') }}" alt=""> Bed 4</p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector2.png') }}" alt=""> Bath 2
-                                                </p>
-                                                <span>|</span>
-                                                <p><img src="{{ asset('assets/web/images/Vector3.png') }}" alt=""> 1500 sqft
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="property-name d-flex justify-content-between align-items-center">
-                                            <h3 class="m-0">$335,800.00</h3>
-                                            <a href="{{ route('listing.detail') }}">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
-                            <div class="property-card-slider-button-wrapper position-relative">
-                                <button class="property-button-prev slider-btn"><i
-                                        class="fa-solid fa-arrow-left"></i></button>
-                                <button class="property-button-next slider-btn"><i
-                                        class="fa-solid fa-arrow-right"></i></button>
-                            </div>
+                            @if($landOrPlotListings->isNotEmpty())
+                                <div class="property-card-slider-button-wrapper position-relative">
+                                    <button class="property-button-prev slider-btn"><i
+                                            class="fa-solid fa-arrow-left"></i></button>
+                                    <button class="property-button-next slider-btn"><i
+                                            class="fa-solid fa-arrow-right"></i></button>
+                                </div>
+                            @endif
                         </div>
+
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-12">
@@ -808,9 +293,8 @@
                 </div>
             </div>
 
-
             <div class="d-flex justify-content-center mt-5">
-                <a href="#" class="primary-btn">View All</a>
+                <a href="{{ route('listings') }}" class="primary-btn">View All</a>
             </div>
         </div>
     </section>

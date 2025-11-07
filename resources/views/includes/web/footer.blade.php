@@ -197,7 +197,7 @@
         <div class="row row-gap-5">
             <div class="col-lg-3">
                 <div class="footer-logo">
-                    <a href="index.php">
+                    <a href="{{ route('index') }}">
                         <img src="{{ asset('assets/web/images/logo.png') }}" alt="">
                     </a>
                 </div>
@@ -352,8 +352,7 @@
 
 {{-- Sweet Alert & Loader --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script
-    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 
 {{-- Validation Scripts Start --}}
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>

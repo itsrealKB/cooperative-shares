@@ -21,18 +21,14 @@ Route::controller(VendorAuthController::class)->group(function(){
     Route::post('/password-update', 'passwordUpdate')->name('password.update');
 });
 
-// Route::get('/listing', function (){
-//    return view('screens.vendor.listing');
-// })->name('listing');
-
-// Route::get('/add-listing', function (){
-//    return view('screens.vendor.add-listing');
-// })->name('add.listing');
 
 Route::controller(ListingController::class)->group(function(){
-    Route::get('/listing', 'index')->name('listing');
-    Route::get('/add-listing', 'addLisitingView')->name('add.listing');
-    Route::post('/add-listing', 'addListing')->name('listing.store');
+    Route::get('/listings', 'index')->name('listings');
+    Route::get('/listing/create', 'create')->name('listing.create');
+    Route::post('/listing', 'store')->name('listing.store');
+    Route::get('/listing/{listing}/edit', 'edit')->name('listing.edit');
+    Route::put('/listing/{listing}', 'update')->name('listing.update');
+    Route::delete('/listing/{listing}', 'destory')->name('listing.delete');
 });
 
 Route::get('/leads', function (){

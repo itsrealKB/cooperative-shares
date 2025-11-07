@@ -40,4 +40,24 @@ class User extends Authenticatable
     {
         return $this->first_name . " " . $this->last_name;
     }
+
+    public function listings()
+    {
+        $this->hasMany(Listing::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role == 'admin';
+    }
+
+    public function isVendor()
+    {
+        return $this->role == 'vendor';
+    }
+
+    public function isUser()
+    {
+        return $this->role == 'user';
+    }
 }

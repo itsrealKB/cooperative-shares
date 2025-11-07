@@ -29,7 +29,7 @@
             @csrf
             <div class="standard-listing-wrapper">
                 <div class="standard-mini-wrapper">
-                    <label for="standard-listing" class="label-para">
+                    <label for="simple-listing" class="label-para">
                         <div class="radio-wrapper">
                             <label class="property-radio-label">
                                 <input type="radio" name="listing" value="simple" id="simple-listing" checked/>
@@ -87,9 +87,10 @@
                         </select>
                     </div>
                     <div class="propFormGroup">
-                        <label for="listed-in" class="propLabel requiredMark">Listed in</label>
+                        <label for="listed-in" class="propLabel requiredMark">Listed Type</label>
                         <select id="listed-in" name="listed_in" class="propSelect">
-                            <option value="all-listings">All Listings</option>
+                            <option value="Full Ownership">Full Ownership</option>
+                            <option value="Co-Op Share">Co-Op Share</option>
                         </select>
                     </div>
                 </div>
@@ -204,12 +205,17 @@
             </div>
 
             <div class="custom-upload-wrapper">
-                <h2 class="view-hd">Photo & Video Attachment</h2>
-
-                {{-- <div id="custom-file-list" class="custom-file-list">
-                    File Items Shown Here
-                </div> --}}
-
+                <h2 class="view-hd">Main Image</h2>
+                <div class="custom-upload-footer mb-5">
+                    <label class="custom-upload-btn">
+                        <input type="file" id="custom-image-input" name="main_image" hidden />
+                        <span id="upload-files"><img src="{{ asset('assets/vendor/images/listing-add-btn.png') }}" alt="">
+                            Upload Image</span>
+                    </label>
+                    <small>Upload Image .jpg, .png</small>
+                </div>
+                <hr/>
+                <h2 class="view-hd mt-5">Photo & Video Attachment</h2>
                 <div class="custom-upload-footer">
                     <label class="custom-upload-btn">
                         <input type="file" id="custom-file-input" name="files[]" multiple hidden />
@@ -223,34 +229,34 @@
             <div class="custom-upload-wrapper">
                 <h2 class="view-hd">Select Amenities</h2>
                 <div class="amenities">
-                    <div class="amenity-item"><input type="checkbox" name="ac" value="ac" id="ac"> A/C & Heating</div>
-                    <div class="amenity-item"><input type="checkbox" name="garages" value="garages" id="garages"> Garages
+                    <div class="amenity-item"><input type="checkbox" name="has_ac" value="ac" id="ac"> A/C & Heating</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_garages" value="garages" id="garages"> Garages
                     </div>
-                    <div class="amenity-item"><input type="checkbox" name="pool" value="pool" id="pool"> Swimming Pool</div>
-                    <div class="amenity-item"><input type="checkbox" name="parking" value="parking" id="parking"> Parking
+                    <div class="amenity-item"><input type="checkbox" name="has_pool" value="pool" id="pool"> Swimming Pool</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_parking" value="parking" id="parking"> Parking
                     </div>
-                    <div class="amenity-item"><input type="checkbox" name="lakeview" value="lakeview" id="lakeview"> Lake
+                    <div class="amenity-item"><input type="checkbox" name="has_lakeview" value="lakeview" id="lakeview"> Lake
                         View</div>
-                    <div class="amenity-item"><input type="checkbox" name="garden" value="garden" id="garden"> Garden</div>
-                    <div class="amenity-item"><input type="checkbox" name="fireplace" value="fireplace" id="fireplace">
+                    <div class="amenity-item"><input type="checkbox" name="has_garden" value="garden" id="garden"> Garden</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_fireplace" value="fireplace" id="fireplace">
                         Fireplace</div>
-                    <div class="amenity-item"><input type="checkbox" name="pet" value="pet" id="pet"> Pet Friendly</div>
-                    <div class="amenity-item"><input type="checkbox" name="ceiling" value="ceiling" id="ceiling"> Ceiling
+                    <div class="amenity-item"><input type="checkbox" name="has_pet" value="pet" id="pet"> Pet Friendly</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_ceiling" value="ceiling" id="ceiling"> Ceiling
                         Height</div>
-                    <div class="amenity-item"><input type="checkbox" name="shower" value="shower" id="shower"> Outdoor
+                    <div class="amenity-item"><input type="checkbox" name="has_shower" value="shower" id="shower"> Outdoor
                         Shower</div>
-                    <div class="amenity-item"><input type="checkbox" name="refrigerator" value="refrigerator"
+                    <div class="amenity-item"><input type="checkbox" name="has_refrigerator" value="refrigerator"
                             id="refrigerator"> Refrigerator</div>
-                    <div class="amenity-item"><input type="checkbox" name="dryer" value="dryer" id="dryer"> Dryer</div>
-                    <div class="amenity-item"><input type="checkbox" name="wifi" value="wifi" id="wifi"> Wifi</div>
-                    <div class="amenity-item"><input type="checkbox" name="tv" value="tv" id="tv"> TV Cable</div>
-                    <div class="amenity-item"><input type="checkbox" name="bbq" value="bbq" id="bbq"> Barbeque</div>
-                    <div class="amenity-item"><input type="checkbox" name="laundry" value="laundry" id="laundry"> Laundry
+                    <div class="amenity-item"><input type="checkbox" name="has_dryer" value="dryer" id="dryer"> Dryer</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_wifi" value="wifi" id="wifi"> Wifi</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_tv" value="tv" id="tv"> TV Cable</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_bbq" value="bbq" id="bbq"> Barbeque</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_laundry" value="laundry" id="laundry"> Laundry
                     </div>
-                    <div class="amenity-item"><input type="checkbox" name="accessible" value="accessible" id="accessible">
+                    <div class="amenity-item"><input type="checkbox" name="has_accessible" value="accessible" id="accessible">
                         Disable Access</div>
-                    <div class="amenity-item"><input type="checkbox" name="lawn" value="lawn" id="lawn"> Lawn</div>
-                    <div class="amenity-item"><input type="checkbox" name="elevator" value="elevator" id="elevator">
+                    <div class="amenity-item"><input type="checkbox" name="has_lawn" value="lawn" id="lawn"> Lawn</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_elevator" value="elevator" id="elevator">
                         Elevator</div>
                 </div>
             </div>
@@ -489,14 +495,26 @@
                     if (!allowedTypes.includes(file.type)) {
                         Swal.fire({
                             title: "Error!",
-                            text: `File Type Of ${file.name} Is Not Allowed, Allowed Types Are (png, jpg, mp4).`,
+                            text: `File Type Of (${file.name}) Is Not Allowed, Allowed Types Are (png, jpg, mp4).`,
                             icon: 'error',
                             confirmButtonColor: '#295568',
                             confirmButtonText: 'OK'
                         });
                     }
                     else {
-                        validFiles.push(file);
+                        if(file.size < (20 * 1024 * 1024)){
+
+                            validFiles.push(file);
+                        }
+                        else{
+                            Swal.fire({
+                                title: "Error!",
+                                text: `File Size Of (${file.name}) Exceed 20MB Limit, Allowed Limit Is 20MB.`,
+                                icon: 'error',
+                                confirmButtonColor: '#295568',
+                                confirmButtonText: 'OK'
+                            });
+                        }
                     }
                 });
 
@@ -523,7 +541,6 @@
         $(document).ready(function () {
             $('#listing-form').on('submit', function (e) {
                 if (!$(this).valid() || !flag) {
-
                     Swal.fire({
                         title: "Error!",
                         text: 'Please Upload A File!',
@@ -531,7 +548,31 @@
                         confirmButtonColor: '#295568',
                         confirmButtonText: 'OK'
                     });
+                    return false;
+                }
+                let mainImage = $('#custom-image-input')[0];
+                const allowedTypes = ['image/png', 'image/jpg'];
+                if(mainImage.files.length){
+                    if(!allowedTypes.includes(mainImage.files[0].type))
+                    {
+                        Swal.fire({
+                            title: "Error!",
+                            text: 'Main Image File Type Is Invalid!',
+                            icon: 'error',
+                            confirmButtonColor: '#295568',
+                            confirmButtonText: 'OK'
+                        });
 
+                        return false;
+                    }
+                }else{
+                    Swal.fire({
+                        title: "Error!",
+                        text: 'Please Upload Main Image!',
+                        icon: 'error',
+                        confirmButtonColor: '#295568',
+                        confirmButtonText: 'OK'
+                    });
                     return false;
                 }
                 e.preventDefault();
@@ -547,18 +588,17 @@
                     },
                     success: function (response) {
                         $.LoadingOverlay('hide');
-                        // if (response.status) {
-                        //     Swal.fire({
-                        //         title: "Info!",
-                        //         text: response.message,
-                        //         icon: 'info',
-                        //         confirmButtonColor: '#295568',
-                        //         confirmButtonText: 'OK'
-                        //     }).then(() => {
-                        //         window.location.reload();
-                        //     });
-                        // }
-                        console.log(response);
+                        if (response.status) {
+                            Swal.fire({
+                                title: "Info!",
+                                text: response.message,
+                                icon: 'info',
+                                confirmButtonColor: '#295568',
+                                confirmButtonText: 'OK'
+                            }).then(() => {
+                                window.location.reload();
+                            });
+                        }
                     },
                     error: function (error) {
                         $.LoadingOverlay('hide');
