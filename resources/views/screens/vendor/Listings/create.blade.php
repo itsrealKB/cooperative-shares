@@ -32,7 +32,7 @@
                     <label for="simple-listing" class="label-para">
                         <div class="radio-wrapper">
                             <label class="property-radio-label">
-                                <input type="radio" name="listing" value="simple" id="simple-listing" checked/>
+                                <input type="radio" name="listing" value="simple" id="simple-listing" checked />
                                 <span class="custom-radio"></span>
                                 <p class="property-para">Simple Listing</p>
                             </label>
@@ -214,7 +214,7 @@
                     </label>
                     <small>Upload Image .jpg, .png</small>
                 </div>
-                <hr/>
+                <hr />
                 <h2 class="view-hd mt-5">Photo & Video Attachment</h2>
                 <div class="custom-upload-footer">
                     <label class="custom-upload-btn">
@@ -230,18 +230,24 @@
                 <h2 class="view-hd">Select Amenities</h2>
                 <div class="amenities">
                     <div class="amenity-item"><input type="checkbox" name="has_ac" value="ac" id="ac"> A/C & Heating</div>
-                    <div class="amenity-item"><input type="checkbox" name="has_garages" value="garages" id="garages"> Garages
+                    <div class="amenity-item"><input type="checkbox" name="has_garages" value="garages" id="garages">
+                        Garages
                     </div>
-                    <div class="amenity-item"><input type="checkbox" name="has_pool" value="pool" id="pool"> Swimming Pool</div>
-                    <div class="amenity-item"><input type="checkbox" name="has_parking" value="parking" id="parking"> Parking
+                    <div class="amenity-item"><input type="checkbox" name="has_pool" value="pool" id="pool"> Swimming Pool
                     </div>
-                    <div class="amenity-item"><input type="checkbox" name="has_lakeview" value="lakeview" id="lakeview"> Lake
+                    <div class="amenity-item"><input type="checkbox" name="has_parking" value="parking" id="parking">
+                        Parking
+                    </div>
+                    <div class="amenity-item"><input type="checkbox" name="has_lakeview" value="lakeview" id="lakeview">
+                        Lake
                         View</div>
-                    <div class="amenity-item"><input type="checkbox" name="has_garden" value="garden" id="garden"> Garden</div>
+                    <div class="amenity-item"><input type="checkbox" name="has_garden" value="garden" id="garden"> Garden
+                    </div>
                     <div class="amenity-item"><input type="checkbox" name="has_fireplace" value="fireplace" id="fireplace">
                         Fireplace</div>
                     <div class="amenity-item"><input type="checkbox" name="has_pet" value="pet" id="pet"> Pet Friendly</div>
-                    <div class="amenity-item"><input type="checkbox" name="has_ceiling" value="ceiling" id="ceiling"> Ceiling
+                    <div class="amenity-item"><input type="checkbox" name="has_ceiling" value="ceiling" id="ceiling">
+                        Ceiling
                         Height</div>
                     <div class="amenity-item"><input type="checkbox" name="has_shower" value="shower" id="shower"> Outdoor
                         Shower</div>
@@ -251,9 +257,11 @@
                     <div class="amenity-item"><input type="checkbox" name="has_wifi" value="wifi" id="wifi"> Wifi</div>
                     <div class="amenity-item"><input type="checkbox" name="has_tv" value="tv" id="tv"> TV Cable</div>
                     <div class="amenity-item"><input type="checkbox" name="has_bbq" value="bbq" id="bbq"> Barbeque</div>
-                    <div class="amenity-item"><input type="checkbox" name="has_laundry" value="laundry" id="laundry"> Laundry
+                    <div class="amenity-item"><input type="checkbox" name="has_laundry" value="laundry" id="laundry">
+                        Laundry
                     </div>
-                    <div class="amenity-item"><input type="checkbox" name="has_accessible" value="accessible" id="accessible">
+                    <div class="amenity-item"><input type="checkbox" name="has_accessible" value="accessible"
+                            id="accessible">
                         Disable Access</div>
                     <div class="amenity-item"><input type="checkbox" name="has_lawn" value="lawn" id="lawn"> Lawn</div>
                     <div class="amenity-item"><input type="checkbox" name="has_elevator" value="elevator" id="elevator">
@@ -270,20 +278,23 @@
                 <div class="prop-wrapper">
                     <div class="propFormGroup">
                         <label for="country" class="propLabel requiredMark">Country</label>
-                        <select id="country" name="country" class="propSelect">
-                            <option value="USA">USA</option>
+                        <select id="country" name="country" class="propSelect" autocomplete="true" disabled>
+                            <option value="United States">United States</option>
                         </select>
                     </div>
                     <div class="propFormGroup">
                         <label for="state" class="propLabel requiredMark">State</label>
-                        <select id="state" name="state" class="propSelect">
-                            <option value="Maine">Maine</option>
+                        <select id="state" name="state" class="propSelect" autocomplete="true">
+                            <option value="">Select State</option>
+                            @foreach ($states as $state )
+                                <option value="{{ $state->name }}" data-id="{{ $state->id }}">{{ $state->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="propFormGroup">
                         <label for="city" class="propLabel requiredMark">City</label>
-                        <select id="city" name="city" class="propSelect">
-                            <option value="Boston">Boston</option>
+                        <select id="city" name="city" class="propSelect" autocomplete="true" disabled>
+                            <option value="">Select City</option>
                         </select>
                     </div>
                     <div class="propFormGroup">
@@ -311,33 +322,6 @@
 @endsection
 
 @push('scripts')
-    {{--
-    <script>
-        const fileInput = document.getElementById("custom-file-input");
-        const fileList = document.getElementById("custom-file-list");
-
-        fileInput.addEventListener("change", function () {
-            const files = Array.from(fileInput.files);
-
-            files.forEach((file) => {
-                const item = document.createElement("div");
-                item.className = "custom-file-item";
-
-                const fileName = document.createElement("span");
-                fileName.textContent = file.name;
-
-                const removeBtn = document.createElement("button");
-                removeBtn.innerHTML = "×";
-                removeBtn.onclick = () => item.remove();
-
-                item.appendChild(fileName);
-                item.appendChild(removeBtn);
-                fileList.appendChild(item);
-            });
-
-            // fileInput.value = ""; // Clear input
-        });
-    </script> --}}
     <script>
         document.querySelectorAll('.standard-mini-wrapper').forEach(wrapper => {
             wrapper.addEventListener('click', () => {
@@ -420,6 +404,18 @@
                     required: true,
                 },
 
+                country: {
+                    required: true,
+                },
+
+                state: {
+                    required: true,
+                },
+
+                city: {
+                    required: true,
+                },
+
                 zip_code: {
                     required: true,
                 },
@@ -468,6 +464,18 @@
                     required: 'Please Enter Property Address!',
                 },
 
+                country: {
+                    required: 'Please Enter Select Country!',
+                },
+
+                state: {
+                    required: 'Please Enter Select State!',
+                },
+
+                city: {
+                    required: 'Please Enter Select City!',
+                },
+
                 zip_code: {
                     required: 'Please Enter Zip Code!',
                 },
@@ -502,11 +510,11 @@
                         });
                     }
                     else {
-                        if(file.size < (20 * 1024 * 1024)){
+                        if (file.size < (20 * 1024 * 1024)) {
 
                             validFiles.push(file);
                         }
-                        else{
+                        else {
                             Swal.fire({
                                 title: "Error!",
                                 text: `File Size Of (${file.name}) Exceed 20MB Limit, Allowed Limit Is 20MB.`,
@@ -518,7 +526,7 @@
                     }
                 });
 
-                if(files.length === validFiles.length){
+                if (files.length === validFiles.length) {
                     flag = true;
                 }
             }
@@ -552,9 +560,8 @@
                 }
                 let mainImage = $('#custom-image-input')[0];
                 const allowedTypes = ['image/png', 'image/jpg'];
-                if(mainImage.files.length){
-                    if(!allowedTypes.includes(mainImage.files[0].type))
-                    {
+                if (mainImage.files.length) {
+                    if (!allowedTypes.includes(mainImage.files[0].type)) {
                         Swal.fire({
                             title: "Error!",
                             text: 'Main Image File Type Is Invalid!',
@@ -565,7 +572,7 @@
 
                         return false;
                     }
-                }else{
+                } else {
                     Swal.fire({
                         title: "Error!",
                         text: 'Please Upload Main Image!',
@@ -611,10 +618,68 @@
                             confirmButtonText: 'OK'
                         });
                     }
-                })
+                });
             });
         });
     </script>
     {{-- Listing Form Submittion --}}
+
+    {{-- Fetching State & City For The Country. --}}
+    <script>
+        $(document).ready(function () {
+            // Fetching Cities
+            $('#state').on('change', function () {
+                let stateVal = $(this).find('option:selected').data('id');
+                let state = $("#state");
+                let city = $('#city');
+                let formData = new FormData();
+                formData.append('_token', "{{ csrf_token() }}");
+                $.ajax({
+                    url : "{{ route('vendor.get.cities',  ':state') }}".replace(':state', stateVal),
+                    type: 'GET',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    beforeSend: function () {
+                        $.LoadingOverlay('show');
+                    },
+                    success: function (response) {
+                        $.LoadingOverlay('hide');
+                        if(response.status){
+                            city.empty();
+                            city.append('<option value="">Select City</option>');
+                            response.cities.forEach(cityObj => {
+                                city.append($('<option>', {
+                                    value: cityObj.name,
+                                    text: cityObj.name
+                                }));
+                            });
+
+                            city.prop('disabled', false);
+                        }
+                    },
+                    error: function (error) {
+                        $.LoadingOverlay('hide');
+                        let message = (error.responseJSON?.message) ? error.responseJSON?.message : error.statusText;
+                        if (error.status == 404) {
+                            city.empty();
+                            city.append('<option value="">Select City</option>');
+                            city.prop('disabled', true);
+                        }
+                        else {
+                            Swal.fire({
+                                title: 'Something Went Wrong!',
+                                text: message,
+                                icon: 'error',
+                                confirmButtonColor: '#295568',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    {{-- Fetching State & City For The Country. --}}
 
 @endpush

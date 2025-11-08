@@ -60,7 +60,7 @@
                     @endguest
 
                     @if(Auth::check() && Auth::user()->isVendor())
-                        <a href="{{ route('vendor.add.listing') }}" class="listing-btn"><img src="{{ asset('assets/web/images/btn-Vector1.png') }}" alt=""> Add Listing</a>
+                        <a href="{{ route('vendor.listing.create') }}" class="listing-btn"><img src="{{ asset('assets/web/images/btn-Vector1.png') }}" alt=""> Add Listing</a>
                     @endif
 
                     @guest

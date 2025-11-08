@@ -39,7 +39,7 @@
         </div>
         <div class="profile-info-wrapper listing-info">
             <div class="listing-card-wrapper listing-card-wrapper2">
-                @foreach ($listings as $listing)
+                @forelse ($listings as $listing)
                     <div class="property-card">
                         <div class="img-area position-relative">
                             <img src="{{ asset('storage/' . $listing->main_image) }}" alt="" class="img-fluid">
@@ -62,7 +62,7 @@
                                                <a href="{{ route('vendor.listing.edit', $listing->id) }}" class="text-light text-decoration-none d-block w-100">Edit</a>
                                             </div>
                                             <div class="custom-dropdown-item">
-                                                <a id="delete-btn" class="text-danger text-decoration-none d-block w-100">Delete</a>
+                                                <a id="delete-btn" data-id="{{ $listing->id }}" class="text-danger text-decoration-none d-block w-100">Delete</a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,9 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <h3 class="text-center w-100">No Listing Added Yet!</h3>
+                @endforelse
             </div>
 
             @if($listings->hasPages())
@@ -199,11 +201,14 @@
                     cancelButtonText: 'Cancel',
                 }).then((result) => {
                     if(result.isConfirmed){
+                        let id = $(this).data('id');
+                        console.log(id);
+                        return;
                         let formData = new FormData();
                         formData.append('_token', "{{ csrf_token() }}");
                         formData.append('_method', 'delete');
                         $.ajax({
-                            url: "{{ route('vendor.listing.delete', $listing->id) }}",
+                            url: "{{ route('vendor.listing.delete', ':id') }}".replace(':id', id),
                             type: 'POST',
                             data: formData,
                             processData: false,
