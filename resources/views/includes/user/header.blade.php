@@ -71,7 +71,7 @@
                     aria-expanded="false">
                     <img src="{{ (Auth::user()->profile_image)? asset('storage/'.Auth::user()->profile_image) : asset('assets/dummy_avatar/avatar.jpg') }}" alt="">
                     <div>
-                        <h5>{{ (Auth::user()->getfullName() != ' ') ? Auth::user()->getfullName() : 'No Name' }}</h5>
+                        <h5>{{ (Auth::user()->full_name != ' ') ? Auth::user()->full_name : 'No Name' }}</h5>
                         <h6>{{ Auth::user()->email }}</h6>
                     </div>
                 </button>

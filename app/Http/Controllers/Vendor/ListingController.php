@@ -119,15 +119,16 @@ class ListingController extends Controller
 
     public function update(Request $request, Listing $listing)
     {
-        // dd($request->all());
-
         try {
             $oldFiles = json_decode($listing->files);
             $filesArray = [];
 
-            foreach($oldFiles as $file)
+            if($oldFiles)
             {
-                $filesArray[] = $file;
+                foreach($oldFiles as $file)
+                {
+                    $filesArray[] = $file;
+                }
             }
 
             if($request->has('main_image'))
@@ -162,7 +163,7 @@ class ListingController extends Controller
                 }
             }
 
-            $listing = Listing::create([
+            $listing->update([
                 'user_id' => Auth::id(),
                 'listing' => $request->listing,
                 'property_title' => $request->property_title,
@@ -202,7 +203,6 @@ class ListingController extends Controller
                 'has_lawn' => $request->has_lawn ?? null,
                 'has_elevator' => $request->has_elevator ?? null,
                 'address' => $request->address,
-                'country' => $request->country,
                 'state' => $request->state,
                 'city' => $request->city,
                 'zip_code' => $request->zip_code,
@@ -226,16 +226,21 @@ class ListingController extends Controller
     public function destory(Listing $listing)
     {
         try {
-            if (Storage::disk('public')->exists($listing->main_image)) {
+            if($listing->main_image)
+            {
+                if (Storage::disk('public')->exists($listing->main_image)) {
 
-                Storage::disk('public')->delete($listing->main_image);
+                    Storage::disk('public')->delete($listing->main_image);
+                }
             }
-
             $files = json_decode($listing->files);
 
-            foreach ($files as $file) {
-                if (Storage::disk('public')->exists($file->path)) {
-                    Storage::disk('public')->delete($file->path);
+            if($files)
+            {
+                foreach ($files as $file) {
+                    if (Storage::disk('public')->exists($file->path)) {
+                        Storage::disk('public')->delete($file->path);
+                    }
                 }
             }
 

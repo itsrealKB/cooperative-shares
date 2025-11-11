@@ -521,7 +521,7 @@
                                         confirmButtonText: 'OK'
                                     }).then(() => {
                                         // window.location.reload();
-                                        button.closest('custom-file-item').remove();
+                                        button.closest('.custom-file-item').remove();
                                     });
                                 }
                             },
@@ -592,6 +592,7 @@
                                     }).then(() => {
                                         // window.location.reload();
                                         button.closest('.custom-file-item').remove();
+                                        if(filesContainer.children().length <= 0) flag = false;
                                     });
                                 }
                             },
@@ -674,7 +675,7 @@
         $(document).ready(function () {
             $('#listing-form').on('submit', function (e) {
                 let filesContainer = $('#custom-file-list');
-                if(filesContainer.children().length > 0) return flag = false;
+                // if(filesContainer.children().length <= 0)  flag = false;
                 if (!$(this).valid()) {
                     return false;
                 }

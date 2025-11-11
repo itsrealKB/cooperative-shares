@@ -25,7 +25,6 @@
     $page = false;
 @endphp
 
-
 @section('section')
     <x-hero-banner Heading="Home" subHeading="Listings" :route="route('index')" />
     <section class="our-property-sec">
@@ -48,7 +47,7 @@
                 </div>
             </div>
             <div class="property-card-wrapper2">
-                @foreach ($listings as $listing)
+                @forelse ($listings as $listing)
                     <div class="property-card-prnt">
                         <div class="property-card">
                             <div class="img-area position-relative">
@@ -87,7 +86,9 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <h3 class="text-center text-danger fw-bold">No Listings Found!</h3>
+                @endforelse
             </div>
             <div class="row">
                 <div class="col-lg-12">

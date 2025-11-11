@@ -7,7 +7,7 @@
         <div class="chart-mega-wrapper">
             <div class="listing-widget-card">
                 <div class="listing-widget-left">
-                    <p class="listing-widget-number">2,356</p>
+                    <p class="listing-widget-number">{{ $totalListings }}</p>
                     <p class="listing-widget-title">Listings</p>
                     <p class="listing-widget-subtitle">New Project</p>
                 </div>
@@ -16,7 +16,7 @@
                         <circle class="listing-widget-bg" cx="62" cy="62" r="57"></circle>
                         <circle class="listing-widget-progress" cx="62" cy="62" r="57"></circle>
                     </svg>
-                    <div class="listing-widget-progress-text">71%</div>
+                    <div class="listing-widget-progress-text">{{ $totalListings }}%</div>
                 </div>
             </div>
             <div class="listing-widget-card">

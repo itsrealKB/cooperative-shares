@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Auth\VendorAuthController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\Vendor\DashboardController;
 use App\Http\Controllers\Vendor\ListingController;
 use App\Http\Controllers\Vendor\LocationController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -42,13 +45,18 @@ Route::controller(ListingController::class)->group(function () {
     Route::delete('listings/files/{listing}', 'deleteFile')->name('listing.file.delete');
 });
 
-Route::get('/leads', function () {
-    return view('screens.vendor.leads');
-})->name('leads');
+Route::controller(LeadController::class)->group(function(){
+    Route::get('/leads', 'index')->name('leads');
+    Route::get('/leads/{lead}/edit', 'edit')->name('lead.edit');
+    Route::put('/leads/{lead}', 'update')->name('lead.update');
+    Route::delete('/leads/{lead}', 'destroy')->name('lead.delete');
+});
 
-Route::get('/appointments', function () {
-    return view('screens.vendor.appointments');
-})->name('appointments');
+
+Route::controller(AppointmentController::class)->group(function(){
+    Route::get('/appointments', 'index')->name('appointments');
+    Route::delete('/appointments/{appointment}', 'destroy')->name('appointment.delete');
+});
 
 Route::get('/marketing-plans', function () {
     return view('screens.vendor.marketing-plans');
@@ -69,7 +77,6 @@ Route::get('/analytics', function () {
 Route::get('/invoices', function () {
     return view('screens.vendor.invoices');
 })->name('invoices');
-
 
 Route::get('/co-op', function () {
     return view('screens.vendor.co-op');

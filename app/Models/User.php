@@ -36,9 +36,14 @@ class User extends Authenticatable
         return ['password' => 'hashed'];
     }
 
-    public function getfullName()
+    public function getFullNameAttribute()
     {
         return $this->first_name . " " . $this->last_name;
+    }
+
+    public function getMemberSinceAttribute()
+    {
+        return $this->updated_at->diffForHumans();
     }
 
     public function listings()

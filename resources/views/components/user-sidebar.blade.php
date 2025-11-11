@@ -4,7 +4,7 @@
     </button>
 
     <div class="logo-area">
-        <a href="{{ route('user.dashboard') }}">
+        <a href="{{ route('index') }}">
             <img src="{{ asset('assets/user/images/logo.png') }}" alt="">
         </a>
     </div>
