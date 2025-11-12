@@ -21,30 +21,30 @@
             </div>
             <div class="listing-widget-card">
                 <div class="listing-widget-left">
-                    <p class="listing-widget-number">255</p>
+                    <p class="listing-widget-number">{{ $totalLeads }}</p>
                     <p class="listing-widget-title">Leads</p>
-                    <p class="listing-widget-subtitle">80.40%</p>
+                    <p class="listing-widget-subtitle">{{ $totalLeads }}%</p>
                 </div>
                 <div class="listing-widget-progress-ring">
                     <svg>
                         <circle class="listing-widget-bg" cx="62" cy="62" r="57"></circle>
                         <circle class="listing-widget-progress" cx="62" cy="62" r="57"></circle>
                     </svg>
-                    <div class="listing-widget-progress-text">45</div>
+                    <div class="listing-widget-progress-text">{{ $totalLeads }}%</div>
                 </div>
             </div>
             <div class="listing-widget-card last">
                 <div class="listing-widget-left">
-                    <p class="listing-widget-number">365</p>
+                    <p class="listing-widget-number">{{ $totalAppointments }}</p>
                     <p class="listing-widget-title">Appointments</p>
-                    <p class="listing-widget-subtitle">365</p>
+                    <p class="listing-widget-subtitle">{{ $totalAppointments }}%</p>
                 </div>
                 <div class="listing-widget-progress-ring">
                     <svg>
                         <circle class="listing-widget-bg" cx="62" cy="62" r="57"></circle>
                         <circle class="listing-widget-progress" cx="62" cy="62" r="57"></circle>
                     </svg>
-                    <div class="listing-widget-progress-text">350</div>
+                    <div class="listing-widget-progress-text">{{ $totalAppointments }}%</div>
                 </div>
             </div>
         </div>

@@ -52,9 +52,9 @@ Route::controller(LeadController::class)->group(function(){
     Route::delete('/leads/{lead}', 'destroy')->name('lead.delete');
 });
 
-
 Route::controller(AppointmentController::class)->group(function(){
     Route::get('/appointments', 'index')->name('appointments');
+    Route::put('/appointments/{appointment}', 'update')->name('appointment.update.status');
     Route::delete('/appointments/{appointment}', 'destroy')->name('appointment.delete');
 });
 
